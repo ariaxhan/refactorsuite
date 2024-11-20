@@ -55,7 +55,7 @@ const MetadataForm: React.FC<MetadataFormProps> = ({ files, onSubmit }) => {
 
       const { metadata: receivedMetadata } = await response.json();
       setMetadata(receivedMetadata);
-      setEditedMetadata(JSON.parse(JSON.stringify(receivedMetadata))); // Deep copy
+      setEditedMetadata({ ...receivedMetadata });
       onSubmit(receivedMetadata);
     } catch (err: any) {
       setError(err.message || "Failed to fetch metadata");
@@ -240,8 +240,7 @@ const MetadataForm: React.FC<MetadataFormProps> = ({ files, onSubmit }) => {
             <button
               onClick={fetchMetadata}
               disabled={loading}
-              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700
-                       disabled:bg-blue-300 transition-colors"
+              className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:bg-blue-300 transition-colors"
             >
               {loading ? "Analyzing..." : "Analyze Files"}
             </button>
@@ -285,12 +284,7 @@ const MetadataForm: React.FC<MetadataFormProps> = ({ files, onSubmit }) => {
                     value={editedMetadata?.language}
                     onChange={(e) =>
                       setEditedMetadata((prev) =>
-                        prev
-                          ? {
-                              ...prev,
-                              language: e.target.value,
-                            }
-                          : null,
+                        prev ? { ...prev, language: e.target.value } : null,
                       )
                     }
                     className="p-1 border rounded-md text-sm"
@@ -303,18 +297,13 @@ const MetadataForm: React.FC<MetadataFormProps> = ({ files, onSubmit }) => {
                     value={editedMetadata?.architecture}
                     onChange={(e) =>
                       setEditedMetadata((prev) =>
-                        prev
-                          ? {
-                              ...prev,
-                              architecture: e.target.value,
-                            }
-                          : null,
+                        prev ? { ...prev, architecture: e.target.value } : null,
                       )
                     }
                     className="p-1 border rounded-md text-sm"
                   />
                 </div>
-                {editedMetadata?.version !== undefined && (
+                {editedMetadata?.version && (
                   <div>
                     <h3 className="font-medium mb-2">Version</h3>
                     <input
@@ -322,12 +311,7 @@ const MetadataForm: React.FC<MetadataFormProps> = ({ files, onSubmit }) => {
                       value={editedMetadata.version}
                       onChange={(e) =>
                         setEditedMetadata((prev) =>
-                          prev
-                            ? {
-                                ...prev,
-                                version: e.target.value,
-                              }
-                            : null,
+                          prev ? { ...prev, version: e.target.value } : null,
                         )
                       }
                       className="p-1 border rounded-md text-sm"

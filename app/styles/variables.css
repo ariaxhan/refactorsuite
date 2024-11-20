@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #c6d2e4;
+    --accent-color: #a6bdcb;
+    --font-family: "Poppins", sans-serif;
+    --font-size: 16px;
+    --line-height: 1.5;
+    --spacing: 16px;
+    --grid-columns: 12;
+    --grid-gap: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #2f343a;
+        --accent-color: #4f5d64;
+    }
+}

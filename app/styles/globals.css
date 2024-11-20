@@ -2,20 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@layer base {
+    body {
+        @apply text-[var(--font-size)] font-[var(--font-family)];
+    }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+@layer utilities {
+    .text-primary {
+        @apply text-[var(--primary-color)];
+    }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+    .bg-primary {
+        @apply bg-[var(--primary-color)];
+    }
+
+    .text-accent {
+        @apply text-[var(--accent-color)];
+    }
+
+    .bg-accent {
+        @apply bg-[var(--accent-color)];
+    }
 }

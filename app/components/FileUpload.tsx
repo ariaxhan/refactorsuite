@@ -74,8 +74,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ onUpload }) => {
   };
 
   return (
-    <div className="border p-4 rounded-md space-y-4">
-      {/* File upload button */}
+    <div className="mx-auto p-6 bg-white rounded-lg shadow-md space-y-4">
       <label htmlFor="file-upload" className="cursor-pointer">
         <div className="p-4 bg-gray-100 rounded-md text-center hover:bg-gray-200 transition-colors">
           Drag and drop files or click to upload (Folders supported)
@@ -91,7 +90,6 @@ const FileUpload: React.FC<FileUploadProps> = ({ onUpload }) => {
         className="hidden"
       />
 
-      {/* Display uploaded files */}
       {processedFiles.length > 0 && (
         <div className="mt-4">
           <h3 className="font-medium mb-2">Uploaded Files:</h3>

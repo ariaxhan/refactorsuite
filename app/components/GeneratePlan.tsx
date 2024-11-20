@@ -90,10 +90,8 @@ const GeneratePlan: React.FC<GeneratePlanProps> = ({
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md space-y-4">
-      <h2 className="text-xl font-bold">
-        What&apos;s your plan for this code?
-      </h2>
+    <div className=" mx-auto p-6 bg-white rounded-lg shadow-md space-y-4">
+      <h2 className="text-xl font-bold">What is your plan for this code?</h2>
 
       {error && (
         <div className="p-3 bg-red-50 border border-red-200 rounded-md text-red-600 text-sm">
@@ -116,9 +114,7 @@ const GeneratePlan: React.FC<GeneratePlanProps> = ({
             setError(null);
             setGoal(e.target.value);
           }}
-          className="w-full h-32 p-3 border rounded-md resize-none
-                   focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-                   disabled:bg-gray-50 disabled:text-gray-500"
+          className="w-full h-32 p-3 border rounded-md resize-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-50 disabled:text-gray-500"
           disabled={loading}
         />
       </div>
@@ -126,10 +122,7 @@ const GeneratePlan: React.FC<GeneratePlanProps> = ({
       <button
         onClick={handleSubmit}
         disabled={!goal.trim() || loading}
-        className="w-full bg-blue-500 text-white py-2 px-4 rounded-md
-                 hover:bg-blue-600 disabled:bg-gray-400
-                 disabled:cursor-not-allowed transition-colors
-                 flex items-center justify-center gap-2"
+        className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
       >
         {loading ? (
           <>
